@@ -38,18 +38,18 @@ export default function TextForms(props) {
             className="form-control"
             value={text}
             onChange={handleOnChange}
-            style={{backgroundColor: props.mode==='light'?'white':'gray', color: props.mode==='dark'?'white':'#042743'}}
+            style={{backgroundColor: props.mode==='dark'?'rgb(46 56 112)':'white', color: props.mode==='dark'?'white':'#042743'}}
             id="myBox"
             rows="8"
           ></textarea>
         </div>
-        <button className="btn btn-primary mx-2" onClick={handleUpClick}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>
           Convert to UpperCase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleLoClick}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleLoClick}>
           Convert to LowerCase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleClearClick}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleClearClick}>
           Clear Text
         </button>
       </div>
@@ -57,10 +57,10 @@ export default function TextForms(props) {
         <h1>Your Text Summary</h1>
         <p>
           {" "}
-          {text.split(" ").length} words and {text.length} characters
+          {text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.length} characters
         </p>
         <h2>Preview</h2>
-        <p>{text.length>0?text:"Enter someting in textbox above"}</p>
+        <p>{text.length>0?text:"Nothing to Preview!"}</p>
       </div>
     </>
   );

@@ -1,28 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function About() {
-  const [myStyle, setMyStyle] = useState({
-    color: "black",
-    backgroundColor: "white",
-  });
+export default function About(props) {
+  // const [myStyle, setMyStyle] = useState({
+  //   color: "black",
+  //   backgroundColor: "white",
+  // });
 
-  const [btnText, setBtnText] = useState("Enable Dark Mode");
-
-  const toggleStyle = () => {
-    if ((myStyle.color === "black")) {
-      setMyStyle({
-        color: "white",
-        backgroundColor: "black",
-      });
-      setBtnText("Enable Light Mode");
-    } else {
-      setMyStyle({
-        color: "black",
-        backgroundColor: "white",
-      });
-      setBtnText("Enable Dark Mode");
-    }
+  let myStyle = {
+    color: props.mode === "dark" ? "white" : "#042743",
+    backgroundColor: props.mode === "dark" ? "#042743" : "white",
   };
+
+  // const [btnText, setBtnText] = useState("Enable Dark Mode");
+
+  // const toggleStyle = () => {
+  //   if ((myStyle.color === "black")) {
+  //     setMyStyle({
+  //       color: "white",
+  //       backgroundColor: "black",
+  //     });
+  //     setBtnText("Enable Light Mode");
+  //   } else {
+  //     setMyStyle({
+  //       color: "black",
+  //       backgroundColor: "white",
+  //     });
+  //     setBtnText("Enable Dark Mode");
+  //   }
+  // };
 
   // let myStyle={
   //     color:'white',
@@ -43,7 +48,7 @@ export default function About() {
               aria-controls="collapseOne"
               style={myStyle}
             >
-              Accordion Item #1
+              ABC
             </button>
           </h2>
           <div
@@ -75,7 +80,7 @@ export default function About() {
               aria-controls="collapseTwo"
               style={myStyle}
             >
-              Accordion Item #2
+              DEF
             </button>
           </h2>
           <div
@@ -107,7 +112,7 @@ export default function About() {
               aria-controls="collapseThree"
               style={myStyle}
             >
-              Accordion Item #3
+              XYZ
             </button>
           </h2>
           <div
@@ -129,11 +134,11 @@ export default function About() {
           </div>
         </div>
       </div>
-      <div className="container my-3">
+      {/* <div className="container my-3">
         <button onClick={toggleStyle} type="button"  className="btn btn-primary">
           {btnText}
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }
